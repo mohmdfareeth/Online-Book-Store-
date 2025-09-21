@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bookstore{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="index-container">
+        <!-- content without background -->
+    </div>
+    <header>
+        <nav style="background: #4CAF50; padding: 15px; text-align:center;">
+            <a href="{{ url_for('home') }}" style="color:white; margin:10px;">Home</a>
+            {% if session.get('loggedin') %}
+                <a href="{{ url_for('cart') }}" style="color:white; margin:10px;">Cart</a>
+                <a href="{{ url_for('logout') }}" style="color:white; margin:10px;">Logout ({{ session['name'] }})</a>
+            {% else %}
+                <a href="{{ url_for('login') }}" style="color:white; margin:10px;">Login</a>
+                <a href="{{ url_for('register') }}" style="color:white; margin:10px;">Register</a>
+            {% endif %}
+            <a href="{{ url_for('admin') }}" style="color:white; margin:10px;">Admin</a>
+        </nav>
+    </header>
+
+    <main style="display:flex; justify-content:center; align-items:center; height:85vh;">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Book</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f6fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .delete-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 400px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #c0392b;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 16px;
+      color: #2c3e50;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      padding: 12px;
+      width: 48%;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-confirm {
+      background: #c0392b;
+      color: #fff;
+    }
+
+    .btn-confirm:hover {
+      background: #922b21;
+    }
+
+    .btn-cancel {
+      background: #bdc3c7;
+      color: #2c3e50;
+    }
+
+    .btn-cancel:hover {
+      background: #95a5a6;
+    }
+  </style>
+</head>
+<body>
+  <div class="delete-container">
+    <h2>Delete Book</h2>
+    <p>Are you sure you want to delete <strong>{{ book[1] }}</strong> by {{ book[2] }}?</p>
+
+    <form method="POST">
+      <div class="btn-group">
+        <button type="submit" class="btn-confirm">Yes, Delete</button>
+        <a href="{{ url_for('admin_dashboard') }}">
+          <button type="button" class="btn-cancel">Cancel</button>
+        </a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

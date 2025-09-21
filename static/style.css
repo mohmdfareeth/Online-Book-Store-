@@ -1,0 +1,207 @@
+/* =========================
+   Global body style
+========================= */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+/* =========================
+   Home page background only
+========================= */
+body.home-bg {
+  background: url("/static/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* =========================
+   White form container box
+========================= */
+.form-container {
+  background: white;
+  width: 350px;
+  margin: 50px auto;
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+/* Input group */
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.input-group input:focus {
+  border-color: #3498db;
+}
+
+/* Checkbox group */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Buttons */
+.btn, button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover, button:hover {
+  background-color: #2980b9;
+}
+
+/* Paragraph links */
+p {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+p a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   Flash messages
+========================= */
+.flash-messages {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.flash-messages li.success {
+  color: green;
+}
+
+.flash-messages li.danger {
+  color: red;
+}
+
+/* =========================
+   Admin Dashboard
+========================= */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.stats {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: #3498db;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 150px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Admin form */
+.dashboard .form-container {
+  width: 400px;
+  margin-bottom: 30px;
+}
+
+/* Book Table */
+table {
+  width: 90%;
+  border-collapse: collapse;
+  margin-bottom: 50px;
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Logout Button */
+.logout-btn {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+.logout-btn:hover {
+  background: #c0392b;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .dashboard .form-container {
+    width: 90%;
+  }
+  table {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+

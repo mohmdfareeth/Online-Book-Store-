@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+    }
+
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .welcome {
+      margin: 15px;
+      font-size: 18px;
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .book-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 15px;
+      transition: transform 0.2s ease;
+    }
+
+    .book-card:hover {
+      transform: scale(1.03);
+    }
+
+    .book-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .book-author {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #666;
+    }
+
+    .book-price {
+      font-size: 18px;
+      color: #4CAF50;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .book-stock {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 8px 15px;
+      font-size: 14px;
+      background: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #45a049;
+    }
+
+    .logout {
+      margin: 20px;
+      text-align: right;
+    }
+    .logout a {
+      color: #ff5252;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📚 Welcome to Bookstore</h1>
+  </header>
+
+  <div class="welcome">
+    Hello, <b>{{ email }}</b> 👋
+  </div>
+
+  <div class="logout">
+    <a href="{{ url_for('logout') }}">Logout</a>
+  </div>
+
+  <div class="book-grid">
+    {% for book in books %}
+    <div class="book-card">
+      <div class="book-title">{{ book.title }}</div>
+      <div class="book-author">by {{ book.author }}</div>
+      <div class="book-price">₹ {{ book.price }}</div>
+      <div class="book-stock">Stock: {{ book.stock }}</div>
+      <a href="#" class="btn">Add to Cart</a>
+    </div>
+    {% endfor %}
+  </div>
+
+</body>
+</html>

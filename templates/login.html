@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login to Bookstore</h2>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class="flash-messages">
+          {% for category, msg in messages %}
+            <li class="{{ category }}">{{ msg }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="/login">
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-group">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter your password" required>
+      </div>
+      
+      <!-- Admin checkbox (optional, UI only) -->
+      <div class="input-group checkbox-group">
+        <input type="checkbox" id="is_admin" name="is_admin">
+        <label for="is_admin">Are you Admin?</label>
+      </div>
+
+      <button type="submit">Login</button>
+      <p>Don’t have an account? <a href="/register">Register here</a></p>
+    </form>
+  </div>
+</body>
+</html>
+
